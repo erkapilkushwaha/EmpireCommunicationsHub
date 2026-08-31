@@ -1,0 +1,28 @@
+{
+  "name": "@workspace/empire-communications-hub",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 0.0.0.0 --port \"$PORT\"",
+    "build": "next build",
+    "start": "next start --hostname 0.0.0.0 --port \"$PORT\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.3.3",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "@supabase/supabase-js": "^2.112.4",
+    "@supabase/ssr": "^0.12.5",
+    "lucide-react": "^1.37.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^20.14.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "tailwindcss": "^3.4.10",
+    "postcss": "^8.5.10",
+    "autoprefixer": "^10.4.20"
+  }
+}

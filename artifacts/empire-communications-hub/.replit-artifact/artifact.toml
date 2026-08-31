@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Empire Communications Hub"
+description = "A production communications hub with a public marketing site, employee workspace, and admin dashboard backed by Supabase."
+version = "1.0.0"
+id = "artifacts/empire-communications-hub"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19304
+
+[services.development]
+run = "pnpm --filter @workspace/empire-communications-hub run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/empire-communications-hub", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/empire-communications-hub/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19304"
+BASE_PATH = "/"
