@@ -89,14 +89,15 @@ export function Navbar() {
               >
                 Employee Login <span>→</span>
               </Link>
-              <LinkButton
-                href="/contact"
-                size="lg"
-                className="w-full text-center"
-                onClick={() => setOpen(false)}
-              >
-                Get a Quote
-              </LinkButton>
+              <div onClick={() => setOpen(false)} className="w-full">
+                <LinkButton
+                  href="/contact"
+                  size="lg"
+                  className="w-full text-center"
+                >
+                  Get a Quote
+                </LinkButton>
+              </div>
             </div>
           </div>
         )}
@@ -104,5 +105,3 @@ export function Navbar() {
     </>
   );
 }
-
-
