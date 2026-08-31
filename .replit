@@ -21,3 +21,9 @@ timeoutMs = 20000
 
 [nix]
 channel = "stable-25_05"
+
+[userenv]
+
+[userenv.shared]
+NEXT_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRlbnhxYWxkanRiZmNqc3hpcHF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgwODE1MTEsImV4cCI6MjEwMzY1NzUxMX0.RDWIA1keWuE-I1y5QLS2x9Tm-c5qXV9fhyJm8jHnr-8"
+NEXT_PUBLIC_SUPABASE_URL = "https://denxqaldjtbfcjsxipqx.supabase.co"
