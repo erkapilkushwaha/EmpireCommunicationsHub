@@ -94,14 +94,14 @@ export function Navbar() {
                 <span className="text-blue-600">→</span>
               </Link>
 
-              <LinkButton
-                href="/contact"
-                size="md"
-                className="w-full text-center"
-                onClick={() => setOpen(false)}
-              >
-                Get a Quote
-              </LinkButton>
+              <Link
+  href="/contact"
+  onClick={() => setOpen(false)}
+  className="w-full text-center block rounded-lg bg-luxuryGold py-3 font-semibold text-luxuryDark transition-colors hover:opacity-95"
+>
+  Get a Quote
+</Link>
+
             </div>
           </div>
         )}
