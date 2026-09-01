@@ -1,18 +1,10 @@
 export function StatCard({ label, value, hint }: { label: string; value: string | number; hint?: string }) {
   return (
-    <div className="border border-navy/10 bg-white p-6">
+    <div className="card-surface relative overflow-hidden p-6">
+      <span className="absolute left-0 top-0 h-full w-1 bg-hub/0 transition-colors duration-300" />
       <p className="font-mono text-xs uppercase tracking-widest text-slate">{label}</p>
       <p className="mt-2 font-display text-3xl font-bold text-navy">{value}</p>
       {hint && <p className="mt-1 text-xs text-slate">{hint}</p>}
-    </div>
-  );
-}
-
-export function PageHeading({ title, subtitle }: { title: string; subtitle?: string }) {
-  return (
-    <div className="mb-8">
-      <h1 className="font-display text-3xl font-bold text-navy">{title}</h1>
-      {subtitle && <p className="mt-1 text-slate">{subtitle}</p>}
     </div>
   );
 }
@@ -41,8 +33,17 @@ export function StatusBadge({ status }: { status: string }) {
   };
   const label = status.split("_").map((w) => w[0].toUpperCase() + w.slice(1)).join(" ");
   return (
-    <span className={`inline-block px-2.5 py-1 text-xs font-medium ${styles[status] ?? "bg-slate/10 text-slate"}`}>
+    <span className={`inline-block rounded-sm px-2.5 py-1 text-xs font-medium ${styles[status] ?? "bg-slate/10 text-slate"}`}>
       {label}
     </span>
+  );
+}
+
+export function PageHeading({ title, subtitle }: { title: string; subtitle?: string }) {
+  return (
+    <div className="mb-8">
+      <h1 className="font-display text-3xl font-bold text-navy">{title}</h1>
+      {subtitle && <p className="mt-1 text-slate">{subtitle}</p>}
+    </div>
   );
 }

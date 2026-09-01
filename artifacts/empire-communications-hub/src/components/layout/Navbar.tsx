@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { LinkButton } from "@/components/ui/Button";
 
@@ -61,37 +61,42 @@ export function Navbar() {
             onClick={() => setOpen(!open)}
             className="relative z-[110] flex h-10 w-10 items-center justify-center rounded-lg border border-navy/10 bg-slate-50 text-navy active:bg-slate-200 lg:hidden cursor-pointer"
           >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
-        {/* Mobile Full Screen / Dropdown Drawer */}
+        {/* Mobile Dropdown Drawer */}
         {mounted && open && (
-          <div className="fixed inset-x-0 top-[73px] bottom-0 z-[99] flex flex-col justify-between overflow-y-auto bg-white px-6 py-8 shadow-2xl lg:hidden">
-            <nav className="flex flex-col gap-6">
+          <div className="fixed inset-x-0 top-[73px] bottom-0 z-[99] flex flex-col justify-between overflow-y-auto bg-white px-6 py-6 shadow-2xl lg:hidden">
+            {/* Balanced Menu Links */}
+            <nav className="flex flex-col divide-y divide-slate-100">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-2xl font-bold text-navy transition-colors hover:text-hub"
+                  className="flex items-center justify-between py-3.5 text-base font-medium text-navy transition-colors hover:text-hub active:text-hub"
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  <ChevronRight className="h-4 w-4 text-slate-400" />
                 </Link>
               ))}
             </nav>
 
-            <div className="flex flex-col gap-4 border-t border-slate-200 pt-6">
+            {/* Bottom Actions Section */}
+            <div className="flex flex-col gap-3 border-t border-slate-200 pt-5">
               <Link
                 href="/employee/login"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-between font-mono text-sm font-semibold uppercase tracking-widest text-slate hover:text-navy"
+                className="flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 py-3 font-mono text-xs font-semibold uppercase tracking-wider text-slate-700 transition-colors hover:bg-slate-100 active:bg-slate-200"
               >
-                Employee Login <span>→</span>
+                <span>Employee Login</span>
+                <span className="text-blue-600">→</span>
               </Link>
+
               <LinkButton
                 href="/contact"
-                size="lg"
+                size="md"
                 className="w-full text-center"
                 onClick={() => setOpen(false)}
               >
@@ -104,5 +109,3 @@ export function Navbar() {
     </>
   );
 }
-
-

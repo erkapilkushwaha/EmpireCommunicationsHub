@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
 import { SignOutButton } from "@/components/auth/SignOutButton";
+import { SidebarNav } from "./SidebarNav";
 
 export interface NavItem {
   href: string;
@@ -27,18 +27,7 @@ export function DashboardShell({
         <div>
           <Logo dark />
           <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.25em] text-cyan">{roleLabel}</p>
-          <nav className="mt-4 flex flex-col gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="flex items-center gap-3 px-3 py-2.5 text-sm text-paper/80 transition-colors hover:bg-paper/5 hover:text-paper"
-              >
-                {item.icon}
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <SidebarNav navItems={navItems} />
         </div>
 
         <div className="mt-10 space-y-3 border-t border-paper/10 pt-4">
@@ -47,7 +36,7 @@ export function DashboardShell({
         </div>
       </aside>
 
-      <main className="flex-1 p-6 md:p-10">{children}</main>
+      <main className="flex-1 p-6 md:p-10 animate-fade-up">{children}</main>
     </div>
   );
 }
