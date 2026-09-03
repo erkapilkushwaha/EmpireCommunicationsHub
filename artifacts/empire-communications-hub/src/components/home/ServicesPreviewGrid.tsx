@@ -135,3 +135,8 @@ export function AboutPreview() {
     </section>
   );
 }
+
+// Fix: Compatibility export taaki Vercel build fail na ho
+export const ServicesPreviewGrid = AboutPreview;
+export default AboutPreview;
+
