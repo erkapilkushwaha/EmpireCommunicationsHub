@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronRight } from "lucide-react";
+import { Menu, X, ChevronRight, ArrowRight, UserCheck } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
-import { LinkButton } from "@/components/ui/Button";
 
 const links = [
   { href: "/about", label: "About" },
@@ -24,17 +23,17 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-[100] w-full border-b border-navy/10 bg-white shadow-sm">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <header className="sticky top-0 z-[100] w-full border-b border-navy/10 bg-white/95 backdrop-blur-md shadow-sm">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
           <Logo />
 
-          {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-8 lg:flex">
+          {/* Desktop Navigation - Sleek & Compact */}
+          <nav className="hidden items-center gap-7 lg:flex">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-body text-sm font-medium text-navy/80 transition-colors hover:text-hub"
+                className="text-xs font-semibold uppercase tracking-wider text-slate-600 transition-colors hover:text-blue-600"
               >
                 {link.label}
               </Link>
@@ -45,13 +44,19 @@ export function Navbar() {
           <div className="hidden items-center gap-4 lg:flex">
             <Link
               href="/employee/login"
-              className="font-mono text-xs uppercase tracking-widest text-slate hover:text-hub"
+              className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-[11px] font-medium uppercase tracking-wider text-slate-500 transition-colors hover:bg-slate-100 hover:text-navy"
             >
-              Employee Login →
+              <UserCheck className="h-3.5 w-3.5 text-slate-400" />
+              <span>Employee Portal</span>
             </Link>
-            <LinkButton href="/contact" size="md">
-              Get a Quote
-            </LinkButton>
+
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-lg bg-navy px-4 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-600 hover:shadow-md active:scale-[0.98]"
+            >
+              <span>Partner With Us</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -59,23 +64,23 @@ export function Navbar() {
             type="button"
             aria-label="Toggle Menu"
             onClick={() => setOpen(!open)}
-            className="relative z-[110] flex h-10 w-10 items-center justify-center rounded-lg border border-navy/10 bg-slate-50 text-navy active:bg-slate-200 lg:hidden cursor-pointer"
+            className="relative z-[110] flex h-9 w-9 items-center justify-center rounded-lg border border-navy/10 bg-slate-50 text-navy transition-colors active:bg-slate-200 lg:hidden cursor-pointer"
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
 
         {/* Mobile Dropdown Drawer */}
         {mounted && open && (
-          <div className="fixed inset-x-0 top-[73px] bottom-0 z-[99] flex flex-col justify-between overflow-y-auto bg-white px-6 py-6 shadow-2xl lg:hidden">
-            {/* Balanced Menu Links */}
+          <div className="fixed inset-x-0 top-[65px] bottom-0 z-[99] flex flex-col justify-between overflow-y-auto bg-white px-6 py-6 shadow-2xl lg:hidden">
+            {/* Menu Links */}
             <nav className="flex flex-col divide-y divide-slate-100">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-between py-3.5 text-base font-medium text-navy transition-colors hover:text-hub active:text-hub"
+                  className="flex items-center justify-between py-3 text-sm font-medium text-navy transition-colors hover:text-blue-600 active:text-blue-600"
                 >
                   <span>{link.label}</span>
                   <ChevronRight className="h-4 w-4 text-slate-400" />
@@ -88,20 +93,20 @@ export function Navbar() {
               <Link
                 href="/employee/login"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 py-3 font-mono text-xs font-semibold uppercase tracking-wider text-slate-700 transition-colors hover:bg-slate-100 active:bg-slate-200"
+                className="flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 py-2.5 font-mono text-xs font-semibold uppercase tracking-wider text-slate-700 transition-colors hover:bg-slate-100 active:bg-slate-200"
               >
-                <span>Employee Login</span>
-                <span className="text-blue-600">→</span>
+                <UserCheck className="h-4 w-4 text-slate-500" />
+                <span>Employee Portal</span>
               </Link>
 
-              <LinkButton
+              <Link
                 href="/contact"
-                size="md"
-                className="w-full text-center"
                 onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-lg bg-navy py-3 text-center text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue-600 active:scale-[0.98]"
               >
-                Get a Quote
-              </LinkButton>
+                <span>Partner With Us</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         )}
