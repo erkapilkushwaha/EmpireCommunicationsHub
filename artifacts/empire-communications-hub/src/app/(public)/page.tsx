@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { Hero } from "@/components/home/Hero";
 import { ChannelStatusStrip } from "@/components/home/ChannelStatusStrip";
-import { ServicesPreviewGrid } from "@/components/home/ServicesPreviewGrid";
+import { AboutPreview } from "@/components/home/AboutPreview";
 import { WhyEmpirePanel } from "@/components/home/WhyEmpirePanel";
 import { CareersTeaserBand } from "@/components/home/CareersTeaserBand";
 import { ContactCTABand } from "@/components/home/ContactCTABand";
@@ -22,9 +22,7 @@ export default async function HomePage() {
     <>
       <Hero />
       <ChannelStatusStrip />
-      <Section>
-        <ServicesPreviewGrid services={(services as Service[] | null) ?? []} />
-      </Section>
+      <AboutPreview />
       <Section className="pt-0">
         <WhyEmpirePanel />
       </Section>
