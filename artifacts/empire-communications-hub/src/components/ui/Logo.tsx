@@ -6,7 +6,7 @@ export function Logo({ className, dark = false }: { className?: string; dark?: b
   return (
     <Link href="/" className={cn("flex items-center gap-3 group", className)}>
       <Image
-        src="/logo-transparent.png"
+        src="/logo.png"
         alt="Empire Communications Hub"
         width={40}
         height={40}
