@@ -31,17 +31,19 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-paper/80">
               <li className="flex items-start gap-2">
                 <Phone size={16} className="mt-0.5 shrink-0 text-cyan" />
-                <a href="tel:+919569079118" className="hover:text-cyan focus-ring">+91 95690 79118</a>
+                <a href="tel:+917398823011" className="hover:text-cyan focus-ring">
+                  +91 73988 23011
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <Mail size={16} className="mt-0.5 shrink-0 text-cyan" />
-                <a href="mailto:kapilkushwaha047@gmail.com" className="hover:text-cyan focus-ring break-all">
-                  kapilkushwaha047@gmail.com
+                <a href="mailto:official@empirecommunicationshub.com" className="hover:text-cyan focus-ring break-all">
+                  official@empirecommunicationshub.com
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin size={16} className="mt-0.5 shrink-0 text-cyan" />
-                <span>Chinhat, Lucknow, Uttar Pradesh</span>
+                <span>D50, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh - 226010</span>
               </li>
               <li className="pt-1">
                 <Link href="/employee/login" className="hover:text-cyan focus-ring">Employee Support</Link>
