@@ -1,32 +1,99 @@
-import { Phone, Mail, MapPin } from "lucide-react";
-import { LinkButton } from "@/components/ui/Button";
-import { Eyebrow } from "@/components/ui/Container";
+import Link from "next/link";
+import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
 export function ContactCTABand() {
   return (
-    <div className="grid gap-10 border-t border-navy/10 pt-16 md:grid-cols-2 md:items-center">
-      <div>
-        <Eyebrow>Get In Touch</Eyebrow>
-        <h2 className="font-display text-3xl font-bold text-navy md:text-4xl">
-          Tell us what you need handled.
-        </h2>
-        <p className="mt-4 max-w-md text-slate">
-          Share a few details about your business and we'll get back to you with how we can help.
-        </p>
-        <LinkButton href="/contact" size="lg" className="mt-6">Get a Quote</LinkButton>
-      </div>
+    <section className="border-t border-slate-200/80 bg-slate-50/50 py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+          
+          {/* Left Column: Heading & Clean CTAs */}
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-wider text-blue-600">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-600"></span>
+              Connect With Us
+            </div>
+            
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+              Powering your business growth with{" "}
+              <span className="text-blue-600">seamless customer engagement.</span>
+            </h2>
+            
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+              Whether you need dedicated telecalling, multichannel customer support, or structured 
+              back-office operations, our operational teams are ready to scale with you.
+            </p>
 
-      <div className="space-y-4 border border-navy/10 bg-white p-6">
-        <a href="tel:+919569079118" className="flex items-center gap-3 text-navy hover:text-hub focus-ring">
-          <Phone size={18} className="text-hub" /> +91 95690 79118
-        </a>
-        <a href="mailto:kapilkushwaha047@gmail.com" className="flex items-center gap-3 text-navy hover:text-hub focus-ring break-all">
-          <Mail size={18} className="text-hub" /> kapilkushwaha047@gmail.com
-        </a>
-        <p className="flex items-center gap-3 text-navy">
-          <MapPin size={18} className="text-hub" /> Chinhat, Lucknow, Uttar Pradesh
-        </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+              >
+                Partner With Us
+                <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 shadow-sm transition-colors hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
+              >
+                Explore Services
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column: Contact Cards matching Screenshot Theme */}
+          <div className="space-y-4 lg:col-span-5">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-blue-200 hover:shadow-md">
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                  <Phone size={20} />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Phone</p>
+                  <a
+                    href="tel:+917398823011"
+                    className="mt-1 block text-base font-semibold text-slate-900 transition-colors hover:text-blue-600"
+                  >
+                    +91 73988 23011
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-blue-200 hover:shadow-md">
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                  <Mail size={20} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Official Email</p>
+                  <a
+                    href="mailto:official@empirecommunicationshub.com"
+                    className="mt-1 block break-all text-base font-semibold text-slate-900 transition-colors hover:text-blue-600"
+                  >
+                    official@empirecommunicationshub.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-blue-200 hover:shadow-md">
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+                  <MapPin size={20} />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Operational Hub</p>
+                  <p className="mt-1 text-sm font-medium leading-snug text-slate-800">
+                    D50, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh - 226010
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
