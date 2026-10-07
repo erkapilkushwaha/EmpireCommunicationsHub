@@ -4,13 +4,13 @@ import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 
 export function ContactCTABand() {
   return (
-    <section className="w-full border-t border-slate-200 bg-white">
+    <section className="w-full bg-white">
       
-      {/* 1. TOP SPLIT: Full Edge-to-Edge */}
+      {/* 1. TOP SPLIT: Clean White Surface + Right Image */}
       <div className="grid w-full lg:grid-cols-2">
         
-        {/* Left Column: Direct Contact Info */}
-        <div className="flex flex-col justify-center bg-slate-50/70 px-6 py-14 sm:px-12 md:px-16 lg:px-20 lg:py-24">
+        {/* Left Side: Direct Contact Details on Pure White */}
+        <div className="flex flex-col justify-center bg-white px-6 py-12 sm:px-12 md:px-16 lg:px-20 lg:py-20">
           <span className="font-mono text-xs font-semibold uppercase tracking-wider text-blue-600">
             Contact
           </span>
@@ -18,7 +18,7 @@ export function ContactCTABand() {
             Get in touch with us
           </h2>
 
-          <div className="mt-8 space-y-5 border-t border-slate-200/80 pt-6">
+          <div className="mt-8 space-y-5 border-t border-slate-200 pt-6">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Call Us</p>
               <a
@@ -59,7 +59,7 @@ export function ContactCTABand() {
           </div>
         </div>
 
-        {/* Right Column: Fresh Telecalling / Customer Service Photo */}
+        {/* Right Side: Photo */}
         <div className="relative min-h-[340px] w-full sm:min-h-[420px] lg:min-h-full">
           <Image
             src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80"
@@ -71,17 +71,18 @@ export function ContactCTABand() {
 
       </div>
 
-      {/* 2. BOTTOM LINKS: Full Width Edge-to-Edge with Exact Contact Page Content */}
-      <div className="w-full px-6 py-16 sm:px-12 md:px-16 lg:px-20 lg:py-20 border-t border-slate-200">
+      {/* 2. BOTTOM SECTION: Direct Text on Pure White Background (No Cards / No Boxes) */}
+      <div className="w-full bg-white px-6 py-14 sm:px-12 md:px-16 lg:px-20 lg:py-18">
         <h3 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
           Contact us
         </h3>
 
         <div className="mt-10 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           
-          <div className="border-t border-slate-200 pt-4">
+          {/* Sales inquiries */}
+          <div>
             <h4 className="text-base font-bold text-slate-900">Sales inquiries</h4>
-            <p className="mt-1 text-xs leading-relaxed text-slate-600">
+            <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
               Looking to hire dedicated callers or scale your business outreach? Let's connect.
             </p>
             <Link 
@@ -92,9 +93,10 @@ export function ContactCTABand() {
             </Link>
           </div>
 
-          <div className="border-t border-slate-200 pt-4">
+          {/* Customer support */}
+          <div>
             <h4 className="text-base font-bold text-slate-900">Customer support</h4>
-            <p className="mt-1 text-xs leading-relaxed text-slate-600">
+            <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
               Need help with ongoing processes or daily customer care services? We are here for you.
             </p>
             <a 
@@ -105,4 +107,62 @@ export function ContactCTABand() {
             </a>
           </div>
 
-          <div
+          {/* Partner requests */}
+          <div>
+            <h4 className="text-base font-bold text-slate-900">Partner requests</h4>
+            <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
+              Want to outsource your daily business operations or build a long-term operational partnership?
+            </p>
+            <Link 
+              href="/departments" 
+              className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 underline underline-offset-4 hover:text-blue-800"
+            >
+              View department network <ArrowRight size={13} />
+            </Link>
+          </div>
+
+          {/* General inquiries */}
+          <div>
+            <h4 className="text-base font-bold text-slate-900">General inquiries</h4>
+            <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
+              Have general questions about our services or company policies? Contact our main desk.
+            </p>
+            <a 
+              href="tel:+917398823011" 
+              className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 underline underline-offset-4 hover:text-blue-800"
+            >
+              Call +91 73988 23011 <ArrowRight size={13} />
+            </a>
+          </div>
+
+          {/* Career opportunities */}
+          <div>
+            <h4 className="text-base font-bold text-slate-900">Career opportunities</h4>
+            <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
+              Looking for a job in telecalling, customer support, or operations? Explore open roles with us.
+            </p>
+            <Link 
+              href="/careers" 
+              className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 underline underline-offset-4 hover:text-blue-800"
+            >
+              See open roles <ArrowRight size={13} />
+            </Link>
+          </div>
+
+          {/* Head Office Location */}
+          <div>
+            <h4 className="text-base font-bold text-slate-900">Head Office Location</h4>
+            <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
+              D50, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh - 226010.
+            </p>
+            <span className="mt-2 block text-xs font-medium text-slate-500">
+              Walk-in timings: 10:00 AM – 5:00 PM
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+  );
+}
