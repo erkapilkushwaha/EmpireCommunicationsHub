@@ -42,209 +42,206 @@ export function EnquiryForm() {
 
     if (error) {
       setStatus("error");
-      setErrorMessage("Kuch galat hua. Kripya dobara try karein ya direct phone/email par contact karein.");
+      setErrorMessage("Kuch takneeki dikkat aayi. Kripya phone ya email par sampark karein.");
       return;
     }
     setStatus("done");
   }
 
   return (
-    <div className="bg-slate-50/50 py-16 lg:py-24">
+    <div className="w-full bg-white py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-semibold tracking-wide text-blue-700">
-            <span className="h-1.5 w-1.5 rounded-full bg-blue-600"></span>
-            Direct Enterprise Consultation
-          </div>
-          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            Let’s discuss your{" "}
-            <span className="bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">
-              operational pipeline.
-            </span>
+        {/* 1. Header Section */}
+        <div className="max-w-3xl">
+          <p className="font-mono text-xs uppercase tracking-wider text-blue-600">
+            Enterprise Consultation
+          </p>
+          <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+            Powering your business growth with{" "}
+            <span className="text-blue-600">seamless customer engagement.</span>
           </h1>
           <p className="mt-4 text-base leading-relaxed text-slate-600">
-            Dedicated telecalling teams, customer retention support, ya back-office scaling—apni requirement share karein aur hamari operational team aapko structured plan provide karegi.
+            Whether you need dedicated telecalling, multichannel customer support, or structured 
+            back-office operations, our operational teams are ready to scale with you.
           </p>
         </div>
 
-        {/* Main Grid: Form + Info with Unsplash Image */}
-        <div className="mt-14 grid gap-10 lg:grid-cols-12 lg:items-start">
-          
-          {/* Left Column: Form */}
-          <div className="rounded-2xl border border-slate-200/90 bg-white p-8 shadow-sm lg:col-span-7">
-            {status === "done" ? (
-              <div className="flex flex-col items-center justify-center py-12 text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-50 text-green-600">
-                  <CheckCircle2 size={36} />
-                </div>
-                <h3 className="mt-4 text-xl font-bold text-slate-900">Enquiry Received Successfully</h3>
-                <p className="mt-2 max-w-md text-sm text-slate-600">
-                  Aapka message mil gaya hai. Hamare operations manager agle 4 operational hours me aapse contact karenge.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setStatus("idle")}
-                  className="mt-6 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700"
-                >
-                  Dusra message bhejein
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div>
-                    <label className={labelClasses} htmlFor="name">Full Name *</label>
-                    <input id="name" name="name" required placeholder="Aapka naam" className={inputClasses} />
-                  </div>
-                  <div>
-                    <label className={labelClasses} htmlFor="company">Company / Organization</label>
-                    <input id="company" name="company" placeholder="Business ka naam" className={inputClasses} />
-                  </div>
-                </div>
-
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div>
-                    <label className={labelClasses} htmlFor="phone">Phone Number *</label>
-                    <input id="phone" name="phone" required placeholder="+91 98765 43210" className={inputClasses} />
-                  </div>
-                  <div>
-                    <label className={labelClasses} htmlFor="email">Official Email *</label>
-                    <input id="email" name="email" type="email" required placeholder="name@company.com" className={inputClasses} />
-                  </div>
-                </div>
-
-                <div>
-                  <label className={labelClasses} htmlFor="message">Requirement Details *</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    required
-                    placeholder="Process type, required team size, daily target volume..."
-                    className={inputClasses}
-                  />
-                </div>
-
-                {status === "error" && (
-                  <p className="rounded-lg bg-red-50 p-3 text-xs font-medium text-red-600">{errorMessage}</p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-500/20 transition-all hover:bg-blue-700 hover:shadow-lg disabled:opacity-70"
-                >
-                  {status === "submitting" ? (
-                    "Processing details..."
-                  ) : (
-                    <>
-                      Submit Operational Enquiry
-                      <ArrowRight size={16} />
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </div>
-
-          {/* Right Column: Office Photo & Real Contact Card */}
-          <div className="space-y-6 lg:col-span-5">
-            <div className="relative h-56 w-full overflow-hidden rounded-2xl border border-slate-200 shadow-sm sm:h-64">
-              <Image
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"
-                alt="Empire Communications Hub Operations Room"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="inline-flex items-center gap-1.5 rounded bg-blue-600/90 px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase">
-                  Active BPO Floor
-                </span>
-                <p className="mt-1 text-sm font-semibold">Structured Workflows & Continuous Supervision</p>
-              </div>
+        {/* 2. Top Professional Office Banner Image */}
+        <div className="relative mt-10 h-72 w-full overflow-hidden rounded-2xl border border-slate-200 shadow-sm md:h-96">
+          <Image
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80"
+            alt="Empire Communications Hub Corporate Office Floor"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+          <div className="absolute bottom-6 left-6 right-6 flex flex-wrap items-center justify-between gap-4 text-white">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded bg-blue-600 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider">
+                Active Operations Center
+              </span>
+              <p className="mt-2 text-lg font-bold sm:text-xl">Central Communications Hub & BPO Floor</p>
             </div>
-
-            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm space-y-4">
-              <div className="flex items-start gap-3.5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                  <Phone size={18} />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold text-slate-500">Phone Support</p>
-                  <a href="tel:+917398823011" className="text-sm font-bold text-slate-900 hover:text-blue-600">
-                    +91 73988 23011
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3.5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                  <Mail size={18} />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-xs font-semibold text-slate-500">Email Desk</p>
-                  <a href="mailto:official@empirecommunicationshub.com" className="break-all text-sm font-bold text-slate-900 hover:text-blue-600">
-                    official@empirecommunicationshub.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3.5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                  <MapPin size={18} />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold text-slate-500">HQ Location</p>
-                  <p className="text-xs font-semibold text-slate-800">
-                    D50, Vibhuti Khand, Gomti Nagar, Lucknow, UP - 226010
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3.5 pt-2 border-t border-slate-100">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-600">
-                  <Clock size={18} />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold text-slate-500">Operations Hours</p>
-                  <p className="text-xs font-medium text-slate-700">Mon - Sat: 9:00 AM – 8:00 PM</p>
-                </div>
-              </div>
-            </div>
+            <p className="text-xs text-slate-300">Vibhuti Khand, Gomti Nagar, Lucknow</p>
           </div>
-
         </div>
 
-        {/* Pre-Footer Quick Navigation Band */}
-        <div className="mt-16 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+        {/* 3. Official Contact Details Cards */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-xl border border-slate-200 p-6 transition-all hover:border-blue-300 hover:shadow-sm">
+            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+              <Phone size={20} />
+            </div>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Phone</p>
+            <a href="tel:+917398823011" className="mt-1 block text-base font-bold text-slate-900 hover:text-blue-600">
+              +91 73988 23011
+            </a>
+            <p className="mt-1 text-xs text-slate-500">Direct operations desk</p>
+          </div>
+
+          <div className="rounded-xl border border-slate-200 p-6 transition-all hover:border-blue-300 hover:shadow-sm">
+            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+              <Mail size={20} />
+            </div>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Official Email</p>
+            <a href="mailto:official@empirecommunicationshub.com" className="mt-1 block break-all text-sm font-bold text-slate-900 hover:text-blue-600">
+              official@empirecommunicationshub.com
+            </a>
+            <p className="mt-1 text-xs text-slate-500">Enterprise support desk</p>
+          </div>
+
+          <div className="rounded-xl border border-slate-200 p-6 transition-all hover:border-blue-300 hover:shadow-sm">
+            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+              <MapPin size={20} />
+            </div>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Head Office</p>
+            <p className="mt-1 text-sm font-bold text-slate-900">D50, Vibhuti Khand</p>
+            <p className="text-xs text-slate-500">Gomti Nagar, Lucknow, UP - 226010</p>
+          </div>
+
+          <div className="rounded-xl border border-slate-200 p-6 transition-all hover:border-blue-300 hover:shadow-sm">
+            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+              <Clock size={20} />
+            </div>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Operations Timing</p>
+            <p className="mt-1 text-sm font-bold text-slate-900">9:00 AM – 8:00 PM</p>
+            <p className="text-xs text-slate-500">Monday to Saturday</p>
+          </div>
+        </div>
+
+        {/* 4. Structured Enquiry Form */}
+        <div className="mt-14 rounded-2xl border border-slate-200 p-8 lg:p-12">
+          <div className="max-w-xl">
+            <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Send Us An Operational Requirement</h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Process volume, required seat capacity ya workflow specifications share karein.
+            </p>
+          </div>
+
+          {status === "done" ? (
+            <div className="mt-8 flex flex-col items-center justify-center rounded-xl border border-green-200 bg-green-50/50 py-12 text-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-green-600">
+                <CheckCircle2 size={32} />
+              </div>
+              <h3 className="mt-4 text-lg font-bold text-slate-900">Enquiry Received</h3>
+              <p className="mt-2 max-w-md text-sm text-slate-600">
+                Aapka request record ho gaya hai. Hamare operations manager jald hi aapse sampark karenge.
+              </p>
+              <button
+                type="button"
+                onClick={() => setStatus("idle")}
+                className="mt-6 rounded-lg bg-blue-600 px-5 py-2 text-xs font-semibold text-white transition-colors hover:bg-blue-700"
+              >
+                Send Another Enquiry
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label className={labelClasses} htmlFor="name">Your Name *</label>
+                  <input id="name" name="name" required placeholder="Full Name" className={inputClasses} />
+                </div>
+                <div>
+                  <label className={labelClasses} htmlFor="company">Company Name</label>
+                  <input id="company" name="company" placeholder="Business / Enterprise" className={inputClasses} />
+                </div>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label className={labelClasses} htmlFor="phone">Phone Number *</label>
+                  <input id="phone" name="phone" required placeholder="+91 73988 23011" className={inputClasses} />
+                </div>
+                <div>
+                  <label className={labelClasses} htmlFor="email">Work Email *</label>
+                  <input id="email" name="email" type="email" required placeholder="contact@domain.com" className={inputClasses} />
+                </div>
+              </div>
+
+              <div>
+                <label className={labelClasses} htmlFor="message">Requirement Details *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  placeholder="Describe your telecalling, customer support, or back-office requirements..."
+                  className={inputClasses}
+                />
+              </div>
+
+              {status === "error" && (
+                <p className="rounded-lg bg-red-50 p-3 text-xs font-medium text-red-600">{errorMessage}</p>
+              )}
+
+              <button
+                type="submit"
+                disabled={status === "submitting"}
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-blue-700 disabled:opacity-70"
+              >
+                {status === "submitting" ? (
+                  "Sending..."
+                ) : (
+                  <>
+                    Submit Enquiry
+                    <ArrowRight size={16} />
+                  </>
+                )}
+              </button>
+            </form>
+          )}
+        </div>
+
+        {/* 5. Pre-Footer Corporate Navigation Band */}
+        <div className="mt-16 rounded-2xl border border-slate-200 bg-slate-50/60 p-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Corporate Navigation</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-600">Quick Navigation</span>
               <h4 className="mt-1 text-lg font-bold text-slate-900">Explore Empire Communications Hub</h4>
-              <p className="mt-1 text-xs text-slate-600">Check our service catalogue or build your career with our Lucknow branch.</p>
+              <p className="mt-1 text-xs text-slate-600">Browse service verticals, departments, or join our professional team.</p>
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 transition-colors hover:bg-slate-50"
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 transition-colors hover:bg-slate-100"
               >
                 <ShieldCheck size={15} className="text-blue-600" />
                 Services
               </Link>
               <Link
                 href="/careers"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 transition-colors hover:bg-slate-50"
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 transition-colors hover:bg-slate-100"
               >
                 <Briefcase size={15} className="text-blue-600" />
                 Careers
               </Link>
               <Link
                 href="/departments"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 transition-colors hover:bg-slate-50"
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 transition-colors hover:bg-slate-100"
               >
                 <Users size={15} className="text-blue-600" />
                 Departments
@@ -265,5 +262,5 @@ export function EnquiryForm() {
   );
 }
 
-// Dono import names support karne ke liye:
 export { EnquiryForm as EnquiryPageSection };
+              
