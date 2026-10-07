@@ -20,7 +20,7 @@ const inputClasses =
   "mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 transition-all placeholder:text-slate-400 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20";
 const labelClasses = "text-xs font-semibold uppercase tracking-wider text-slate-700";
 
-export function EnquiryPageSection() {
+export function EnquiryForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "done" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -84,6 +84,7 @@ export function EnquiryPageSection() {
                   Aapka message mil gaya hai. Hamare operations manager agle 4 operational hours me aapse contact karenge.
                 </p>
                 <button
+                  type="button"
                   onClick={() => setStatus("idle")}
                   className="mt-6 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700"
                 >
@@ -150,7 +151,6 @@ export function EnquiryPageSection() {
 
           {/* Right Column: Office Photo & Real Contact Card */}
           <div className="space-y-6 lg:col-span-5">
-            {/* Unsplash Image Card */}
             <div className="relative h-56 w-full overflow-hidden rounded-2xl border border-slate-200 shadow-sm sm:h-64">
               <Image
                 src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"
@@ -167,7 +167,6 @@ export function EnquiryPageSection() {
               </div>
             </div>
 
-            {/* Official Contact Badges */}
             <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm space-y-4">
               <div className="flex items-start gap-3.5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
@@ -211,7 +210,7 @@ export function EnquiryPageSection() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-slate-500">Operations Hours</p>
-                  <p className="text-xs font-medium text-slate-700">Mon - Sat: 9:30 AM – 6:30 PM IST</p>
+                  <p className="text-xs font-medium text-slate-700">Mon - Sat: 9:00 AM – 8:00 PM</p>
                 </div>
               </div>
             </div>
@@ -265,3 +264,6 @@ export function EnquiryPageSection() {
     </div>
   );
 }
+
+// Dono import names support karne ke liye:
+export { EnquiryForm as EnquiryPageSection };
