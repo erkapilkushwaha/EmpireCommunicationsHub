@@ -1,91 +1,125 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import {
-  Container,
+  Section,
   Eyebrow,
 } from "@/components/ui/Container";
+
+import { LinkButton } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Empire Communications Hub, our mission, vision and values in communication, customer support and business operations.",
+    "Learn about Empire Communications Hub, our mission, vision and values.",
 };
 
 const values = [
   {
-    title: "Professionalism",
+    title: "Clear Communication",
     detail:
-      "We believe in clear communication, responsible work and respectful interactions.",
+      "We believe in simple, clear and respectful communication.",
   },
   {
-    title: "Transparency",
+    title: "Responsible Work",
     detail:
-      "We value clear expectations and honest communication with clients and team members.",
+      "We aim to handle everyday work with care and responsibility.",
   },
   {
-    title: "Learning & Growth",
+    title: "Learning and Growth",
     detail:
-      "We encourage people to learn, improve their skills and take responsibility for their work.",
+      "We encourage our team to learn and improve their skills.",
   },
   {
     title: "Customer Focus",
     detail:
-      "We aim to understand customer needs and handle every conversation with care.",
+      "We aim to understand customer needs and provide helpful support.",
   },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="w-full bg-white text-navy">
-      {/* About */}
-      <section
-        aria-labelledby="about-title"
-        className="pb-10 pt-12 md:pb-12 md:pt-16"
-      >
-        <Container>
-          <Eyebrow>About Us</Eyebrow>
+    <Section className="bg-white text-navy">
+      <div>
+        <Eyebrow>About Us</Eyebrow>
 
-          <h1
-            id="about-title"
-            className="max-w-3xl font-display text-3xl font-bold leading-tight md:text-4xl"
-          >
-            Get to know Empire Communications Hub.
-          </h1>
+        <h1 className="font-display text-3xl font-bold text-navy md:text-4xl">
+          About Empire Communications Hub
+        </h1>
 
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate md:text-lg">
-            Empire Communications Hub is a Lucknow-based organisation
-            focused on communication, customer engagement, sales
-            support and business operations.
+        <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate">
+          Empire Communications Hub is based in Lucknow and focuses
+          on communication, customer support, sales support and
+          business operations.
+        </p>
+
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate">
+          We aim to help businesses manage everyday work through
+          clear communication and organised processes. We also
+          value a workplace where people can learn and improve
+          their skills.
+        </p>
+      </div>
+
+      <div className="mt-10 grid gap-8 border-t border-navy/10 pt-8 md:grid-cols-2">
+        <div>
+          <h2 className="font-display text-2xl font-semibold text-navy">
+            Our Mission
+          </h2>
+
+          <p className="mt-3 text-base leading-relaxed text-slate">
+            To help businesses with clear communication, customer
+            support and organised day-to-day work.
           </p>
+        </div>
 
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate">
-            We aim to help businesses manage everyday work through
-            clear communication and organised processes. We also
-            value a supportive work environment where people can
-            learn and improve their skills.
+        <div>
+          <h2 className="font-display text-2xl font-semibold text-navy">
+            Our Vision
+          </h2>
+
+          <p className="mt-3 text-base leading-relaxed text-slate">
+            To become a trusted business partner and a workplace
+            where people can learn and grow.
           </p>
-        </Container>
-      </section>
+        </div>
+      </div>
 
-      {/* Mission and vision */}
-      <section
-        aria-label="Our mission and vision"
-        className="pb-10 md:pb-12"
-      >
-        <Container>
-          <div className="grid gap-8 border-t border-navy/10 pt-8 md:grid-cols-2 md:gap-12">
-            <div>
-              <h2 className="font-display text-2xl font-semibold">
-                Our Mission
-              </h2>
+      <div className="mt-10 border-t border-navy/10 pt-8">
+        <h2 className="font-display text-2xl font-semibold text-navy">
+          Our Values
+        </h2>
 
-              <p className="mt-3 text-sm leading-relaxed text-slate md:text-base">
-                To support businesses with clear communication,
-                responsible customer service and organised
-                day-to-day operations.
+        <div className="mt-6 grid gap-x-10 gap-y-6 md:grid-cols-2">
+          {values.map((value) => (
+            <div key={value.title}>
+              <h3 className="text-base font-semibold text-navy">
+                {value.title}
+              </h3>
+
+              <p className="mt-2 text-sm leading-relaxed text-slate">
+                {value.detail}
               </p>
             </div>
+          ))}
+        </div>
+      </div>
 
-            <div>
-              <h2 className="font-display text-2xl font-semibo
+      <div className="mt-10 flex flex-col items-start gap-5 border-t border-navy/10 pt-8 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h2 className="font-display text-2xl font-semibold text-navy">
+            Join Our Team
+          </h2>
+
+          <p className="mt-3 text-sm leading-relaxed text-slate">
+            Interested in working with us? Explore our career
+            opportunities.
+          </p>
+        </div>
+
+        <LinkButton href="/careers" size="lg">
+          View Careers
+        </LinkButton>
+      </div>
+    </Section>
+  );
+}
